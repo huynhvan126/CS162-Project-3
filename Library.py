@@ -232,9 +232,9 @@ class Library:
         """
         Looks up a patron by its ID.
         """
-        for patron_id in self._members:
+        for patron in self._members:
             if patron.get_patron_id() == patron_id:
-                return patron_id
+                return patron
         return None
 
     def check_out_library_item(self, patron_id, item_id):
