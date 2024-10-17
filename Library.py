@@ -79,24 +79,24 @@ class LibraryItem:
 
 class Book(LibraryItem):
     """
-    Represents a LibraryItem in a book.
+    Represents an item in a book.
     """
     def __init__(self, library_item_id, title, author):
         """
         Initializes a Book object.
         """
-        super().__int__(library_item_id, title)
+        super().__init__(library_item_id, title)
         self._author = author
 
     def get_author(self):
-       """
-       Returns the author of the book.
-       """
+        """
+        Returns the author of the book.
+        """
         return self._author
 
-    def get_checked_out_length(self):
+    def get_check_out_length(self):
         """
-        Returns the checked out length of the book.
+        Returns the checkout length of the book.
         """
         return 21
 
@@ -177,13 +177,13 @@ class Patron:
         """
         return self._fine_amount
 
-    def add_library_item(self, item)
+    def add_library_item(self, item):
         """
         Adds a library item to the patron.
         """
         self._checked_out_items.append(item)
 
-    def remove_library_item(self, item)
+    def remove_library_item(self, item):
         """
         Removes a library item from the patron.
         """
@@ -252,7 +252,7 @@ class Library:
         if item.get_location() == "CHECKED_OUT":
             return "item already checked out"
 
-        if item.get_requested_by() and item.get_requested_by() != patron
+        if item.get_requested_by() and item.get_requested_by() != patron:
             return "item on hold by other patron"
 
         item.set_checked_out_by(patron)
@@ -298,7 +298,7 @@ class Library:
         if not item:
             return "item not found"
 
-        if item.get_requested_by()
+        if item.get_requested_by():
             return "item already on hold"
 
         item.set_requested_by(patron)
