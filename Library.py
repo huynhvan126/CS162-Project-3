@@ -319,11 +319,11 @@ class Library:
 
     def increment_current_date(self):
         """
-        Increments the current date.
+        Increments the current date and applies overdue fines.
         """
         self._current_date += 1
         for patron in self._members:
             for item in patron._checked_out_items:
                 overdue_days = self._current_date - (item.get_date_checked_out() + item.get_check_out_length())
                 if overdue_days > 0:
-                    patron.amend_fine(0.1 * overdue_days)
+                    patron.amend_fine(0.1)
