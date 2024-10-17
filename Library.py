@@ -6,7 +6,7 @@ class LibraryItem:
     """
     Represents an item in a library.
     """
-    def __int__(self, library_item_id, title):
+    def __init__(self, library_item_id, title):
         """
         Initializes a LibraryItem object with its ID and title.
         """
@@ -108,7 +108,7 @@ class Album(LibraryItem):
         """
         Initializes a Album object.
         """
-        super().__int__(library_item_id, title)
+        super().__init__(library_item_id, title)
         self._artist = artist
 
     def get_artist(self):
@@ -131,7 +131,7 @@ class Movie(LibraryItem):
         """
         Initializes a Movie object.
         """
-        super().__int__(library_item_id, title)
+        super().__init__(library_item_id, title)
         self._director = director
 
     def get_director(self):
